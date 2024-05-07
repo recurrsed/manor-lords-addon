@@ -72,8 +72,8 @@ with dpg.window(
     for resource in yData:
         buttonWindow = dpg.add_child_window(tag=f"button_{resource}_wrapper", parent=buttonsWindow, border=False, height=60)
         btnLabel = f"{resource} {int(yData[resource][len(yData[resource]) - 1])}"
-        btn = dpg.add_button(label=btnLabel, parent=buttonWindow, tag=f"{resource}-btn", height=60)
-        # dpg.add_image(f"{resource}_icon", before=btn, width=55, height=50)
+        btn = dpg.add_button(label=btnLabel, parent=buttonWindow, tag=f"{resource}-btn", height=60, pos=[60, -5])
+        dpg.add_image(f"{resource}_icon", before=btn, width=55, height=50)
 
     # Create plot
     with dpg.plot(

@@ -2,52 +2,52 @@ import dearpygui.dearpygui as dpg
 
 TRACKED_RESOURCES = {
     'Ale': {
-        'color': [] # add color here
+        'color': [205, 177, 154]
     },
     'Approval': {
-        'color': [] # add color here
+        'color': [68, 124, 51]
     },
     'Berries': {
-        'color': [] # add color here
+        'color': [139, 97, 223]
     },
     'Clay': {
-        'color': [] # add color here
+        'color': [255, 187, 178]
     },
     'Eggs': {
-        'color': [] # add color here
+        'color': [225, 210, 184]
     },
     'Firewood': {
-        'color': [] # add color here
+        'color': [190, 140, 76]
     },
     'Hides': {
-        'color': [] # add color here
+        'color': [163, 128, 104]
     },
     'Iron Ore': {
-        'color': [] # add color here
+        'color': [175, 58, 69]
     },
     'Leather': {
-        'color': [] # add color here
+        'color': [85, 54, 38]
     },
     'Meat': {
-        'color': [] # add color here
+        'color': [178, 80, 78]
     },
     'Planks': {
-        'color': [] # add color here
+        'color': [220, 142, 91]
     },
     'Regional Wealth': {
-        'color': [] # add color here
+        'color': [188, 174, 154]
     },
     'Roof Tiles': {
-        'color': [] # add color here
+        'color': [225, 138, 0]
     },
     'Stone': {
-        'color': [] # add color here
+        'color': [126, 124, 126]
     },
     'Timber': {
-        'color': [] # add color here
+        'color': [72, 36, 35]
     },
     'Vegetables': {
-        'color': [] # add color here
+        'color': [241, 160, 125]
     },
 }
 
@@ -91,19 +91,12 @@ def setupButtonStyling():
     dpg.add_theme_color(dpg.mvThemeCol_ButtonActive, (0, 0, 0, 0))
 
 def setupTextures():
-    print("lol")
-    # dpg.add_static_texture(100, 100, default_value=[80, 87, 105], tag="active-btn", label="Static Texture 1")
-
-    # wallpaperWidth, wallpaperHeight, channels, wallpaperData = dpg.load_image("./assets/chart-bg.png")
-    # dpg.add_static_texture(width=wallpaperWidth, height=wallpaperHeight, default_value=wallpaperData, tag="wallpaper_img")
-
     # Setup icons for all resources
+    for resource in TRACKED_RESOURCES:
+        iconPath = f"./assets/{resource}.png"
+        width, height, channels, imgData = dpg.load_image(iconPath)
 
-    # for resource in TRACKED_RESOURCES:
-    #     iconPath = f"./assets/{resource}.png"
-    #     width, height, channels, imgData = dpg.load_image(iconPath)
-
-    #     dpg.add_static_texture(width=width, height=height, default_value=imgData, tag=f"{resource}_icon")
+        dpg.add_static_texture(width=width, height=height, default_value=imgData, tag=f"{resource}_icon")
 
 def setupResourceTheme(label: str):
     with dpg.theme(tag=label):
